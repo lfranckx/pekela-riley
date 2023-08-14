@@ -1,0 +1,54 @@
+<div class="custom-slideshow">
+    <div class="slides">
+        <img src="https://images.squarespace-cdn.com/content/v1/5f987842776301128247baad/875c2a61-7048-434e-8750-35c63552baa6/1-timeline.png?format=2500w" alt="Timeline 2010-2018" />
+        <img src="https://images.squarespace-cdn.com/content/v1/5f987842776301128247baad/e95f2c27-417e-478a-a37e-423f18da87ac/2-timeline.png?format=2500w" alt="Timeline 2019-2022" />
+    </div>
+    <div class='btn-wrap'>
+        <img class="arrow" src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/64bbf9ff-bf43-4353-98b9-bffe416d8df7/long-arrow.png?content-type=image%2Fpng' alt='Ulta Case Study' />
+    </div>
+</div>
+  
+<style>
+    .custom-slideshow {
+        position: relative;
+        width: 100%;
+        max-width: 100%; /* Adjust as needed */
+        overflow: hidden;
+    }
+    .slides {
+        display: flex;
+        transition: all 0.5s ease;
+    }
+    .slides img {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+    .arrow {
+        cursor: pointer;
+        padding-right: 40px;
+    }
+</style>
+
+<script>
+    var slidesContainer = document.querySelector('.custom-slideshow .slides');
+    var slides = document.querySelectorAll('.custom-slideshow .slides img');
+    var currentSlide = 0;
+    var goingForward = true; // New variable to track the direction
+    
+    function showSlide(index) {
+        var offset = -index * 100;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+        currentSlide = index;
+    }
+    
+    document.querySelector('.custom-slideshow .arrow').addEventListener('click', function() {
+        if (goingForward) {
+            var nextSlide = (currentSlide + 1) % slides.length;
+        } else {
+            var nextSlide = currentSlide - 1;
+            if (nextSlide < 0) nextSlide = slides.length - 1;
+        }
+        showSlide(nextSlide);
+        goingForward = !goingForward; // Toggle the direction for next click
+    });
+</script>

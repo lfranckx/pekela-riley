@@ -1,0 +1,52 @@
+<div class="paragraph-slider">
+    <div class="slides">
+        <p class="slide">Pekela Riley is an award-winning stylist, educator, and global hair consultant pioneering the industry as a creative visionary and transformative change agent to the groundbreaking texture movement that champions diverse representation and inclusion. Founder and chief innovator of Salon PK and True + Pure Texture, her transformative impact and celebration of all hair types are exhibited from behind the chair and inside the corporate boardroom to remain in front of the next wave.</p>
+        <p class="slide">Her contribution to the industry can be considered as revolutionary across her accolades and recognition in editorial styling, artistic direction, and education consulting. In 2019 she co-founded the Global Artistry Council, whose DE&IB pillars were founded on representation and equity to provide opportunity, support, and education to bridge the gaps and elevate the texture-centered educational experience. Additionally, her emerging natural texture hair extensions brand True +Pure Texture is her highly coveted marque offering for valuing such under-serviced diverse audiences.</p>
+        <p class="slide">Today, Pekela is on a mission to impact a greater audience by collaborating with brands to bring cultural context to product launches that touch the texture community. Her vision is to bring the true actualization of the worth of texture inclusion and equality to the beauty industry as a leading voice and authority for DE&I.</p>
+    </div>
+    <div class='btn-wrap'>
+        <button class="arrow">→</button>
+    </div>
+</div>
+  
+<style>
+    .paragraph-slider {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+    .slides {
+        display: flex;
+        transition: all 0.5s ease;
+        white-space: nowrap; /* Prevents line breaks between slides */
+    }
+    .slide {
+        flex: 0 0 auto; /* Allows slides to take up natural width */
+        width: 100%;
+        white-space: normal; /* Allows line breaks within slides */
+        margin-top: 0;
+    }
+    .arrow {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        font-size: 1.6rem;
+    }
+</style>
+  
+<script>
+    var slidesContainer = document.querySelector('.paragraph-slider .slides');
+    var slides = document.querySelectorAll('.paragraph-slider .slides .slide');
+    var currentSlide = 0;
+    
+    function showSlide(index) {
+        var offset = -index * slides[0].offsetWidth; // Translate by the width of one slide
+        slidesContainer.style.transform = `translateX(${offset}px)`;
+        currentSlide = index;
+    }
+    
+    document.querySelector('.paragraph-slider .arrow').addEventListener('click', function() {
+        var nextSlide = (currentSlide + 1) % slides.length;
+        showSlide(nextSlide);
+    });
+</script>
