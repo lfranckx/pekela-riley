@@ -1,0 +1,99 @@
+<div class="services-pop-up" id="pop-up-1">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/364f30ee-df90-429d-b9d2-8ef315b30b89/pop-up-brand-amb.png?content-type=image%2Fpng' alt='Brand Ambassador' />
+</div>
+
+<div class="services-pop-up" id="pop-up-2">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/1a9fb50c-8b85-4305-84ea-72024726d99c/pop-up-video.png?content-type=image%2Fpng' alt='Photo &amp; Video Shoots' />
+</div>
+
+<div class="services-pop-up" id="pop-up-3">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/70448e8d-ad6a-4a89-82bf-31b95402f8f4/pop-up-product-dev.png?content-type=image%2Fpng' alt='Product Development &amp; Marketing Strategy Consultant' />
+</div>
+
+<div class="services-pop-up" id="pop-up-4">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/e353262b-d860-43b2-84d7-d7db96702e0a/pop-up-team-train.png?content-type=image%2Fpng' alt='Team Trainings' />
+</div>
+
+<div class="services-pop-up" id="pop-up-5">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/fa45b89b-bb1f-43f7-9ffa-5391eb2f1c0f/pop-up-curriculum.png?content-type=image%2Fpng' alt='Curriculum Writing' />
+</div>
+
+<div class="services-pop-up" id="pop-up-6">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/fa45b89b-bb1f-43f7-9ffa-5391eb2f1c0f/pop-up-curriculum.png?content-type=image%2Fpng' alt='Curriculum Writing' />
+</div>
+
+<div class="services-pop-up" id="pop-up-7">
+    <span class="close-pop-up">&times;</span>
+    <img src='https://images.squarespace-cdn.com/content/5f987842776301128247baad/eb51fd1b-cda2-4fe5-ab6f-f134d6faabbd/pop-up-deic.png?content-type=image%2Fpng' alt='Diversity, Equity, &amp; Inclusion Consultant' />
+</div>
+
+<style>
+    .services-pop-up {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+    
+    .services-pop-up img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 80%;
+        max-height: 80%;
+    }
+    
+    .close-pop-up {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+    }
+</style>
+  
+<script>
+    function openPopUp(buttonId, popUpId) {
+        document.querySelector(buttonId).addEventListener('click', function(e) {
+        e.preventDefault(); // Prevents the default behavior
+        e.stopPropagation(); // Prevents the click event from bubbling up
+        document.querySelector(popUpId).style.display = 'block';
+        });
+    }
+    
+    openPopUp("#block-yui_3_17_2_1_1691696855317_5651", "#pop-up-1");
+    openPopUp("#block-yui_3_17_2_1_1691696855317_4081", "#pop-up-2");
+    openPopUp("#block-yui_3_17_2_1_1691696855317_7196", "#pop-up-3");
+    openPopUp("#block-yui_3_17_2_1_1691696855317_4569", "#pop-up-4");
+    openPopUp("#block-yui_3_17_2_1_1691696855317_13850", "#pop-up-2");
+    openPopUp("#block-yui_3_17_2_1_1691696855317_5048", "#pop-up-5");
+    openPopUp("#block-yui_3_17_2_1_1691696855317_16374", "#pop-up-5");
+    
+    // Close pop-ups
+    document.querySelectorAll('.close-pop-up').forEach(function(closeButton) {
+        closeButton.addEventListener('click', function() {
+        this.parentNode.style.display = 'none';
+        });
+    });
+    
+    // Close pop-ups when clicking outside the image
+    document.querySelectorAll('.services-pop-up').forEach(function(popup) {
+        popup.addEventListener('click', function(event) {
+        if (event.target.className === 'services-pop-up') {
+            this.style.display = 'none';
+        }
+        });
+    });
+</script>
